@@ -1,0 +1,489 @@
+import React from 'react';
+
+const GeotechnicalExercises = () => {
+  const generatePDF = () => {
+    // La función window.print() abre el diálogo de impresión/PDF del navegador.
+    window.print();
+  };
+
+  return (
+    <div className="min-h-screen bg-white p-8">
+      <div className="max-w-4xl mx-auto bg-white">
+        
+        {/*
+          CLASE AÑADIDA: 'print:hidden'
+          Esto oculta el div (y el botón) cuando se utiliza el diálogo de impresión (window.print()).
+        */}
+        <div className="mb-6 print:hidden">
+          <button
+            onClick={generatePDF}
+            className="bg-gray-800 text-white px-6 py-2 rounded border border-gray-800 hover:bg-gray-700"
+          >
+            Imprimir / Guardar como PDF
+          </button>
+        </div>
+
+        <div className="text-center mb-16 pb-8 border-b-2 border-black">
+          <h1 className="text-2xl font-bold mb-8">MECÁNICA DE SUELOS</h1>
+          <h2 className="text-xl font-bold mb-8">TEMA I: ESTUDIOS GEOTÉCNICOS Y PROPIEDADES ÍNDICE</h2>
+          <h3 className="text-lg font-bold mb-12">EJERCICIOS RESUELTOS</h3>
+          
+          <div className="mt-16 text-left inline-block">
+            <p className="text-base mb-2"><strong>ESTUDIANTE:</strong></p>
+            <p className="text-base mb-6">FRANQUERLYN DIONICIO RAMÍREZ</p>
+            
+            <p className="text-base mb-2"><strong>MATRÍCULA:</strong></p>
+            <p className="text-base mb-6">100538562</p>
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <h3 className="text-lg font-bold mb-4 pb-2 border-b border-black">
+            EJERCICIO 1.1: PROGRAMACIÓN DEL ESTUDIO DE SUELO PARA HOTEL
+          </h3>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">1. ESTIMACIÓN DE LA CARGA DE DISEÑO</h4>
+            <p className="mb-3">Calculamos la carga máxima que se transmitirá a una columna.</p>
+            
+            <p className="mb-2"><strong>Área de Influencia:</strong></p>
+            <p className="ml-6 mb-4">Ai = 6.0 m × 6.0 m = 36.0 m²</p>
+
+            <p className="mb-2"><strong>Carga por Nivel:</strong></p>
+            <p className="ml-6 mb-4">Pnivel = 2.4 ton/m² × 36.0 m² = 86.4 ton/nivel</p>
+
+            <p className="mb-2"><strong>Carga Total por Columna:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Pcol = 86.4 ton/nivel × 8 niveles = 691.2 ton</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">2. PROFUNDIDAD MÍNIMA DE EXPLORACIÓN</h4>
+            
+            <p className="mb-2"><strong>Criterio:</strong></p>
+            <p className="ml-6 mb-3">Dmin debe ser mayor o igual a 1.5 veces el ancho de la zapata y nunca menor a 10 m.</p>
+
+            <p className="mb-2"><strong>Estimación de B:</strong></p>
+            <p className="ml-6 mb-2">Asumiendo B aprox 4.0 m</p>
+            <p className="ml-6 mb-4">Dmin mayor o igual 1.5 × 4.0 m = 6.0 m</p>
+
+            <p className="mb-2"><strong>Decisión:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Dmínima de Sondeo = 12.0 m</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">3. NÚMERO Y UBICACIÓN DE SONDEOS</h4>
+            <p className="ml-6 mb-4 font-bold">Nsond = 4 (esquinas) + 1 (centro) = 5 sondeos</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">4. PROGRAMA DEL ESTUDIO DE SUELO</h4>
+
+            <table className="w-full border-collapse border border-black text-sm">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ACTIVIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">REQUISITO</th>
+                  <th className="border border-black p-2 text-left font-bold">JUSTIFICACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Tipo de Exploración</td>
+                  <td className="border border-black p-2">SPT</td>
+                  <td className="border border-black p-2">Obtener resistencia del suelo y tomar muestras</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Número de Puntos</td>
+                  <td className="border border-black p-2 font-bold">5 sondeos</td>
+                  <td className="border border-black p-2">Cubrir esquinas y centro</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Profundidad Mínima</td>
+                  <td className="border border-black p-2 font-bold">12.0 m</td>
+                  <td className="border border-black p-2">Zona de influencia para 8 niveles</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intervalo de Muestreo</td>
+                  <td className="border border-black p-2">Cada 1.0 m</td>
+                  <td className="border border-black p-2">Perfiles detallados de resistencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Campo</td>
+                  <td className="border border-black p-2">SPT a intervalos</td>
+                  <td className="border border-black p-2">Determinar densidad y consistencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Laboratorio</td>
+                  <td className="border border-black p-2">w, LL, IP, Granulometría, SUCS</td>
+                  <td className="border border-black p-2">Parámetros para capacidad de carga</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mb-12" style={{pageBreakBefore: 'always'}}>
+          <h3 className="text-lg font-bold mb-4 pb-2 border-b border-black">
+            EJERCICIO 1.2: PROGRAMACIÓN DEL ESTUDIO DE SUELO PARA ESCUELA
+          </h3>
+
+          <p className="mb-4"><strong>ENUNCIADO:</strong> Escuela sobre suelo blando de 1.5 ton/m³, 5 niveles con muros de concreto armado sobre platea de 40 m × 20 m.</p>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">1. ESTIMACIÓN DE LA CARGA DE DISEÑO</h4>
+            
+            <p className="mb-2"><strong>Área de la Platea:</strong></p>
+            <p className="ml-6 mb-4">40 m × 20 m = 800 m²</p>
+
+            <p className="mb-2"><strong>Carga Vertical Total:</strong></p>
+            <p className="ml-6 mb-1">Asumiendo 1.5 ton/m² por nivel</p>
+            <p className="ml-6 mb-4 font-bold">ΣP = 1.5 ton/m² × 5 niveles × 800 m² = 6,000 ton</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">2. PROFUNDIDAD MÍNIMA DE EXPLORACIÓN</h4>
+            
+            <p className="mb-2"><strong>Criterio:</strong></p>
+            <p className="ml-6 mb-4">Dmin mayor o igual 2.0 × B = 2.0 × 20 m = 40.0 m</p>
+
+            <p className="mb-2"><strong>Decisión:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Dmínima de Sondeo = 25.0 m</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">3. NÚMERO Y UBICACIÓN DE SONDEOS</h4>
+            <p className="ml-6 mb-4 font-bold">Nsond = 4 (esquinas) + 1 (centro) = 5 sondeos</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">4. PROGRAMA DEL ESTUDIO DE SUELO</h4>
+
+            <table className="w-full border-collapse border border-black text-sm">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ACTIVIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">REQUISITO</th>
+                  <th className="border border-black p-2 text-left font-bold">JUSTIFICACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Tipo de Exploración</td>
+                  <td className="border border-black p-2">SPT y Tubo Shelby</td>
+                  <td className="border border-black p-2">Muestras inalteradas en suelo blando</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Número de Puntos</td>
+                  <td className="border border-black p-2 font-bold">5 sondeos</td>
+                  <td className="border border-black p-2">Cubrir esquinas y centro</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Profundidad Mínima</td>
+                  <td className="border border-black p-2 font-bold">25.0 m</td>
+                  <td className="border border-black p-2">Cobertura de zona de influencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intervalo de Muestreo</td>
+                  <td className="border border-black p-2">SPT cada 1.5 m, Shelby cada 2.0 m</td>
+                  <td className="border border-black p-2">Resistencia y compresibilidad</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Campo</td>
+                  <td className="border border-black p-2">SPT</td>
+                  <td className="border border-black p-2">Resistencia al corte</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Laboratorio</td>
+                  <td className="border border-black p-2">w, LL, IP, SUCS, Consolidación</td>
+                  <td className="border border-black p-2">Predecir asentamientos en suelo blando</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mb-12" style={{pageBreakBefore: 'always'}}>
+          <h3 className="text-lg font-bold mb-4 pb-2 border-b border-black">
+            EJERCICIO 1.3: PROGRAMACIÓN DEL ESTUDIO DE SUELO PARA POLITÉCNICO
+          </h3>
+
+          <p className="mb-4"><strong>ENUNCIADO:</strong> Politécnico en San Pedro de Macorís sobre suelo de 1.5 ton/m³, 5 niveles, pórticos de hormigón armado con 8 columnas espaciadas a 5 m.</p>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">1. ESTIMACIÓN DE LA CARGA DE DISEÑO</h4>
+            
+            <p className="mb-2"><strong>Área de Influencia:</strong></p>
+            <p className="ml-6 mb-4">Ai = 5.0 m × 5.0 m = 25.0 m²</p>
+
+            <p className="mb-2"><strong>Carga por Nivel:</strong></p>
+            <p className="ml-6 mb-4">Pnivel = 1.2 ton/m² × 25.0 m² = 30.0 ton/nivel</p>
+
+            <p className="mb-2"><strong>Carga Total por Columna:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Pcol = 30.0 ton/nivel × 5 niveles = 150.0 ton</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">2. PROFUNDIDAD MÍNIMA DE EXPLORACIÓN</h4>
+            
+            <p className="mb-2"><strong>Estimación de B:</strong></p>
+            <p className="ml-6 mb-2">Asumiendo capacidad admisible de 15 ton/m²</p>
+            <p className="ml-6 mb-1">Azapata = 150 ton / 15 ton/m² = 10.0 m²</p>
+            <p className="ml-6 mb-4">B aprox 3.16 m</p>
+
+            <p className="mb-2"><strong>Decisión:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Dmínima de Sondeo = 10.0 m</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">3. NÚMERO Y UBICACIÓN DE SONDEOS</h4>
+            <p className="ml-6 mb-4 font-bold">Nsond = 4 sondeos (esquinas)</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">4. PROGRAMA DEL ESTUDIO DE SUELO</h4>
+
+            <table className="w-full border-collapse border border-black text-sm">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ACTIVIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">REQUISITO</th>
+                  <th className="border border-black p-2 text-left font-bold">JUSTIFICACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Tipo de Exploración</td>
+                  <td className="border border-black p-2">SPT</td>
+                  <td className="border border-black p-2">Método estándar para resistencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Número de Puntos</td>
+                  <td className="border border-black p-2 font-bold">4 sondeos</td>
+                  <td className="border border-black p-2">Cubrir esquinas de la cimentación</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Profundidad Mínima</td>
+                  <td className="border border-black p-2 font-bold">10.0 m</td>
+                  <td className="border border-black p-2">Zona de influencia para 5 niveles</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intervalo de Muestreo</td>
+                  <td className="border border-black p-2">Cada 1.5 m</td>
+                  <td className="border border-black p-2">Perfiles detallados de resistencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Campo</td>
+                  <td className="border border-black p-2">SPT, Nivel freático</td>
+                  <td className="border border-black p-2">Densidad, consistencia y presencia de agua</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Laboratorio</td>
+                  <td className="border border-black p-2">w, LL, IP, SUCS, Granulometría</td>
+                  <td className="border border-black p-2">Parámetros para capacidad de carga</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mb-12" style={{pageBreakBefore: 'always'}}>
+          <h3 className="text-lg font-bold mb-4 pb-2 border-b border-black">
+            EJERCICIO 1.4: PROGRAMACIÓN DEL ESTUDIO DE SUELO PARA HOSPITAL
+          </h3>
+
+          <p className="mb-4"><strong>ENUNCIADO:</strong> Hospital en Azua sobre suelo de 1.7 ton/m³, 6 niveles con muros de hormigón armado sobre platea de 35 m × 25 m.</p>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">1. ESTIMACIÓN DE LA CARGA DE DISEÑO</h4>
+            
+            <p className="mb-2"><strong>Área de la Platea:</strong></p>
+            <p className="ml-6 mb-4">35 m × 25 m = 875 m²</p>
+
+            <p className="mb-2"><strong>Carga Vertical Total:</strong></p>
+            <p className="ml-6 mb-1">Asumiendo 1.8 ton/m² por nivel</p>
+            <p className="ml-6 mb-4 font-bold">ΣP = 1.8 ton/m² × 6 niveles × 875 m² = 9,450 ton</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">2. PROFUNDIDAD MÍNIMA DE EXPLORACIÓN</h4>
+            
+            <p className="mb-2"><strong>Criterio:</strong></p>
+            <p className="ml-6 mb-4">Dmin mayor o igual 2.0 × B = 2.0 × 25 m = 50.0 m</p>
+
+            <p className="mb-2"><strong>Decisión (Estructura Crítica):</strong></p>
+            <p className="ml-6 mb-4 font-bold">Dmínima de Sondeo = 30.0 m</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">3. NÚMERO Y UBICACIÓN DE SONDEOS</h4>
+            <p className="ml-6 mb-4 font-bold">Nsond = 4 (esquinas) + 1 (centro) = 5 sondeos</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">4. PROGRAMA DEL ESTUDIO DE SUELO</h4>
+
+            <table className="w-full border-collapse border border-black text-sm">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ACTIVIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">REQUISITO</th>
+                  <th className="border border-black p-2 text-left font-bold">JUSTIFICACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Tipo de Exploración</td>
+                  <td className="border border-black p-2">SPT y Tubo Shelby</td>
+                  <td className="border border-black p-2">Datos precisos para estructura crítica</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Número de Puntos</td>
+                  <td className="border border-black p-2 font-bold">5 sondeos</td>
+                  <td className="border border-black p-2">Cubrir esquinas y centro</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Profundidad Mínima</td>
+                  <td className="border border-black p-2 font-bold">30.0 m</td>
+                  <td className="border border-black p-2">Zona de influencia para 6 niveles</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intervalo de Muestreo</td>
+                  <td className="border border-black p-2">SPT cada 1.0 m</td>
+                  <td className="border border-black p-2">Mayor densidad por estructura crítica</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Campo</td>
+                  <td className="border border-black p-2">SPT, Nivel Freático</td>
+                  <td className="border border-black p-2">Resistencia y riesgo de licuefacción</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Laboratorio</td>
+                  <td className="border border-black p-2">w, LL, IP, SUCS, Consolidación</td>
+                  <td className="border border-black p-2">Evaluar asentamientos a largo plazo</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mb-12" style={{pageBreakBefore: 'always'}}>
+          <h3 className="text-lg font-bold mb-4 pb-2 border-b border-black">
+            EJERCICIO 1.5: PLANIFICACIÓN DEL ESTUDIO GEOTÉCNICO EN SANTIAGO
+          </h3>
+
+          <p className="mb-4"><strong>ENUNCIADO:</strong> Edificio en Santiago sobre terreno arcilloso de 1.90 ton/m³. Sistema mixto: muros sobre platea y pórticos con cimientos aislados. Dimensiones: 32.5 m × 30 m.</p>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">1. ANÁLISIS DE LA ESTRUCTURA</h4>
+            
+            <p className="mb-2"><strong>Ubicación:</strong></p>
+            <p className="ml-6 mb-3">Santiago (riesgo sísmico moderado, arcillas expansivas)</p>
+
+            <p className="mb-2"><strong>Terreno:</strong></p>
+            <p className="ml-6 mb-3">Arcilloso con γ = 1.90 ton/m³</p>
+
+            <p className="mb-2"><strong>Sistema de Cimentación Mixto:</strong></p>
+            <p className="ml-6 mb-1">1. Plateas: Carga distribuida</p>
+            <p className="ml-6 mb-1">2. Pórticos con Cimientos Aislados: Cargas concentradas</p>
+            <p className="ml-6 mb-4">3. Muros: Carga lineal</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">2. PROFUNDIDAD MÍNIMA DE EXPLORACIÓN</h4>
+            
+            <p className="mb-2"><strong>Criterio:</strong></p>
+            <p className="ml-6 mb-4">Dmin mayor o igual 2.0 × 30 m = 60.0 m</p>
+
+            <p className="mb-2"><strong>Decisión Práctica:</strong></p>
+            <p className="ml-6 mb-4 font-bold">Dmínima de Sondeo = 25.0 m</p>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">3. NÚMERO Y UBICACIÓN DE SONDEOS</h4>
+
+            <table className="w-full border-collapse border border-black text-sm mb-4">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ZONA</th>
+                  <th className="border border-black p-2 text-left font-bold">NECESIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">NÚMERO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Zona de Platea</td>
+                  <td className="border border-black p-2">Cubrir esquinas y centro</td>
+                  <td className="border border-black p-2 text-center font-bold">3</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Zona de Pórticos</td>
+                  <td className="border border-black p-2">Cubrir esquinas del área</td>
+                  <td className="border border-black p-2 text-center font-bold">4</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intersección</td>
+                  <td className="border border-black p-2">Unión platea-pórticos</td>
+                  <td className="border border-black p-2 text-center font-bold">1</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2 font-bold">TOTAL</td>
+                  <td className="border border-black p-2"></td>
+                  <td className="border border-black p-2 text-center font-bold">8</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mb-6">
+            <h4 className="font-bold mb-2">4. PROGRAMA DEL ESTUDIO GEOTÉCNICO</h4>
+
+            <table className="w-full border-collapse border border-black text-sm">
+              <thead>
+                <tr>
+                  <th className="border border-black p-2 text-left font-bold">ACTIVIDAD</th>
+                  <th className="border border-black p-2 text-left font-bold">REQUISITO</th>
+                  <th className="border border-black p-2 text-left font-bold">JUSTIFICACIÓN</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border border-black p-2">Tipo de Exploración</td>
+                  <td className="border border-black p-2">SPT y Tubo Shelby</td>
+                  <td className="border border-black p-2">Muestras inalteradas en arcilla</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Número de Puntos</td>
+                  <td className="border border-black p-2 font-bold">8 sondeos</td>
+                  <td className="border border-black p-2">Cobertura de sistema mixto</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Profundidad Mínima</td>
+                  <td className="border border-black p-2 font-bold">25.0 m</td>
+                  <td className="border border-black p-2">Zona de influencia de la platea</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Intervalo de Muestreo</td>
+                  <td className="border border-black p-2">SPT cada 1.5 m, Shelby cada 2.0 m</td>
+                  <td className="border border-black p-2">Datos detallados de compresibilidad</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Campo</td>
+                  <td className="border border-black p-2">SPT, Nivel Freático</td>
+                  <td className="border border-black p-2">Consistencia y resistencia</td>
+                </tr>
+                <tr>
+                  <td className="border border-black p-2">Ensayos de Laboratorio</td>
+                  <td className="border border-black p-2">w, LL, IP, SUCS, Consolidación, Expansión</td>
+                  <td className="border border-black p-2">Crítico para arcillas de Santiago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default GeotechnicalExercises;
